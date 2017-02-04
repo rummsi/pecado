@@ -1,0 +1,217 @@
+/**
+ *------------------------------------------------------------------------------
+ * @package       T3 Framework for Joomla!
+ *------------------------------------------------------------------------------
+ * @copyright     Copyright (C) 2004-2013 JoomlArt.com. All Rights Reserved.
+ * @license       GNU General Public License version 2 or later; see LICENSE.txt
+ * @authors       JoomlArt, JoomlaBamboo, (contribute to this project at github
+ *                & Google group to become co-author)
+ * @Google group: https://groups.google.com/forum/#!forum/t3fw
+ * @Link:         http://t3-framework.org
+ *------------------------------------------------------------------------------
+ */
+
+// ---------------------------------------------------------
+// NAV
+// ---------------------------------------------------------
+.t3-mainnav {
+  border-top: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+
+  .navbar-inner {
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+
+  .navbar .nav > li > a,
+  .navbar .nav > li > span {
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+}
+
+.t3-mainnav .navbar .nav > .active > a,
+.t3-mainnav .navbar .nav > .active > a:hover,
+.t3-mainnav .navbar .nav > .active > a:focus,
+.t3-mainnav .navbar .nav > .active > span,
+.t3-mainnav .navbar .nav > .active > span:hover,
+.t3-mainnav .navbar .nav > .active > span:focus {
+  background: @green;
+}
+
+// ---------------------------------------------------------
+// MODULES
+// ---------------------------------------------------------
+#community-wrap {
+  a {
+    color: @green;
+  }
+
+  .cFeaturedTitle a, .cSubmenu li a, .cSubmenu li a.active, .js-focus .js-focus-menu a  {
+    color:@green;
+    &:hover {
+      color:darken(@green,10%);
+    }
+  }
+
+}
+/*
+#community-wrap .js-toolbar-mods,
+#community-tb-wrap.community-toolbar,
+#community-wrap .js-toolbar-mods .navbar-inner,
+#community-tb-wrap.community-toolbar .navbar-inner {
+  background: @green;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.t3-sidebar .cModule ul.community-event li .cThumb-Calendar,
+.t3-sidebar .t3-module ul.community-event li .cThumb-Calendar {
+  background: @menubg;
+}
+
+.t3-sidebar .cModule ul.community-event li .cThumb-Calendar b + b,
+.t3-sidebar .t3-module ul.community-event li .cThumb-Calendar b + b {
+  background: @green;
+}
+
+#community-wrap .js-toolbar-mods.toolbar-login .btn.btn-green,
+#community-tb-wrap.community-toolbar.toolbar-login .btn.btn-green {
+  background: @grayDark;
+}
+*/
+
+#community-wrap .js-toolbar-mods,
+#community-tb-wrap.community-toolbar,
+#community-wrap .js-toolbar-mods .navbar-inner,
+#community-tb-wrap.community-toolbar .navbar-inner {
+  background: @toolbarbg;
+  color:@toolbartext;
+  //border-bottom: 1px solid #d9d9d9;
+  box-shadow: none;
+}
+
+#community-wrap .js-toolbar-mods .navbar-inner,
+#community-tb-wrap.community-toolbar .navbar-inner {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  border-bottom: 0 none;
+}
+
+#community-wrap .js-toolbar-mods.toolbar-login,
+#community-tb-wrap.community-toolbar.toolbar-login {
+  color: #555;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.t3-sidebar .cModule ul.community-event li .cThumb-Calendar,
+.t3-sidebar .t3-module ul.community-event li .cThumb-Calendar {
+  background: @menubg;
+}
+
+.t3-sidebar .cModule ul.community-event li .cThumb-Calendar b + b,
+.t3-sidebar .t3-module ul.community-event li .cThumb-Calendar b + b {
+  background: @green;
+}
+
+/*
+#community-wrap .js-toolbar-mods.toolbar-login .btn.btn-green,
+#community-tb-wrap.community-toolbar.toolbar-login .btn.btn-green {
+  background: @grayDark;
+}
+*/
+
+#community-wrap .js-toolbar-mods,
+#community-tb-wrap.community-toolbar {
+
+  .nav > li > a  {
+    color: @grayLighter !important;
+
+    &:hover {
+      color: @green;
+    }
+
+    i {
+
+    }
+  }
+
+  .user-info {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    a {
+      h3 {
+      }
+
+      &:hover {
+        h3 {
+          color: @green;
+        }
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    border: 1px solid #ccc !important;
+  }
+
+  .toolbar-search {
+    .input-prepend.input-block-level > input,
+    .input-append.input-block-level > input,
+    .input-prepend.input-block-level > input,
+    .input-append.input-block-level > input {
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      border: 1px solid #ccc;
+      border-left: 0 none;
+    }
+  }
+
+}
+
+
+// ---------------------------------------------------------
+// FOOTER
+// ---------------------------------------------------------
+
+.t3-footer {
+  background: @linkColor;
+  color: @white;
+  // links
+  a {
+    color: lighten(@linkColor,50%);
+  }
+  a:hover, a:active, a:focus {
+    color: @white;
+  }
+
+  .small, small {
+    color: @white;
+  }
+
+  .t3-copyright {
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    background: rgba(0,0,0,.1);
+    border-top: 1px solid rgba(255,255,255,.3);
+  }
+}
+
+// Foot Nav
+// --------
+.t3-footnav .module-title {
+  color: @white;
+}
+
+
+// Copyright
+// ---------
+.t3-copyright {
+  border-top: 1px solid lighten(@linkColor,5%);
+}
+
+// Replace Button Primary Color
+
+@import "../../../../../plugins/system/t3/base/bootstrap/less/mixins.less";
+
+.btn-primary, #community-wrap .btn-primary,#community-wrap .btn {
+  .buttonBackground(#618900, lighten(saturate(#618900,20%),5%)) !important;
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<access component="com_avchat3">
+        <section name="component">
+                <action name="avchat3.allow_user_interface" title="Allow Access to the Chat's User Interface (Does not apply to the Super User Group)" description="Allow users in this usergroup to access the chat." />
+                <action name="avchat3.allow_admin_interface" title="Allow Access to the Chat's Admin Interface" description="Allow users in this usergroup to access the chat as admins." />
+                <action name="avchat3.allow_room_join" title="Allow Users to Join Rooms." description="Allow users to access rooms." />
+                <action name="avchat3.allow_streaming" title="Allow Users to Broadcast Audio &amp; Video" description="Allow Users to Broadcast Audio &amp; Video." />
+                <action name="avchat3.allow_watching_stream" title="Allow Users to Watch Other User's Audio &amp; Video Streams." description="Allow Users to Watch Other User's Audio &amp; Video Streams." />
+                <action name="avchat3.allow_private_streaming" title="Allow Users to Make their Audio &amp; Video Broadcasts Private." description="Allow Users make their Audio &amp; Video Broadcasts private." />
+                <action name="avchat3.allow_youtube" title="Allow YouTube Button to be Shown in Interface." description="Controls the status of the YouTube button in the text chat area.Set &quot;Allow&quot; for button to be visible and enabled. Set &quot;Deny&quot; for button to be hidden" />
+                <action name="avchat3.allow_send_file_to_rooms" title="Allow Users to Send Files to Rooms." description="Allow users to send files to rooms." />
+                <action name="avchat3.allow_send_file_to_users" title="Allow Users to Send Files to Other Users." description="Allow users to send files to users." />
+                <action name="avchat3.allow_emails" title="Allow Users to View Emails (Uncesored) in Text Chat Area." description="If set to &quot;Allow&quot; emails in the text chat area will be highlighted. If set to &quot;Deny&quot; then email will be censored to *****."/>
+                <action name="avchat3.allow_urls" title="Allow Users to View URLs (uncesored) in text chat area." description="If set to &quot;Allow&quot; URLs in the text chat area will be highlighted. If set to &quot;Deny&quot; then URLs will be censored to *****." />
+                <action name="avchat3.allow_pm" title="Allow Users to Send Private Messages." description="Allow users to send private messages." />
+                <action name="avchat3.allow_create_room" title="Allow Users to Create Rooms." description="Allow users to create rooms." />
+                <action name="avchat3.allow_send_messages" title="Allow Users to Send Messages in text chat area." description="Allow users to send messages in text chat area." />
+                <action name="avchat3.allow_buzz" title="Allow Users to Buzz Other Users." description="Allow users to buzz." />
+                <action name="avchat3.allow_country_flag" title="Allow Badge to be Shown Beside Profile Photo." description="Allow badge to be shown beside profile photo. The path to the badge can be specified in the AVChat 3 General Settings tab" />
+				<action name="avchat3.show_online_time" title="Allow Users to See How Much They Stayed Online." description="Allow users to see how much they stayed online." />
+				<action name="avchat3.clear_all_rooms_screens_button_show" title="Allow Users to See the Button &quot;Clear all room screens&quot;." description="Allow the users to see the button &quot;Clear all room screens&quot;." />
+				<action name="avchat3.showigpm" title="Allow Users to See the &quot;IgnorePMs&quot; Button." description="Allow users to see the &quot;IgnorePMs&quot; button." />
+				<action name="avchat3.stop_viewer_button_enabled" title="Allow Users to See the &quot;Stop Him/Her from Viewing You&quot; Button in the Side Menu " description="Allow users to see the &quot;Stop him/her from viewing you&quot; button in the side menu for individual users that are looking at you." />
+				
+				
+				
+                
+                <!-- Valid only if users in user role have access to AVChat as admins -->
+                <action name="avchat3.admin_allow_delete_rooms" title="Allow Admins/Moderators to Delete Rooms." description="Allow admins/moderators to delete rooms." />
+                <action name="avchat3.admin_allow_edit_rooms" title="Allow Admins/Moderators to Edit Rooms." description="Allow admins/moderators to edit rooms." />
+                <action name="avchat3.admin_can_ban" title="Allow Admins/Moderators to Ban Users." description="Allow admins/moderators to ban users." />
+                <action name="avchat3.admin_can_kick" title="Allow Admins/Moderators to Kick Users from the Entire Chat." description="Allow admins/moderators to kick users from the entire chat." />
+                <action name="avchat3.admin_can_remove_ban" title="Allow Admins/Moderators to Remove Ban." description="Allow admins/moderators to remove ban. Access to the Ban Pannel must be allowed" />
+                <action name="avchat3.admin_can_view_pm" title="Allow Admins/Moderators to View Private Messages." description="Allow admins/moderators to view private messages." />
+                <action name="avchat3.admin_can_view_ps_without_permission" title="Allow Admins/Moderators to View Private Streams Without Permission." description="Allow admins/moderators to view private streams without permission." />
+                <action name="avchat3.admin_can_join_pr_without_permission" title="Allow Allow Admins/Moderators to Join Private Rooms Without Permission." description="Allow admins/moderators to join private rooms without permission." />
+                <action name="avchat3.admin_can_access_settings" title="Allow Admins/Moderators to Access Chat Settings." description="Allow admins/moderators to access chat settings." />
+                <action name="avchat3.admin_can_access_ban_panel" title="Allow Admins/Moderators to Access the Ban Panel." description="Allow admins/moderators to access the ban panel." />
+                <action name="avchat3.admin_can_login_hidden" title="Allow Admins/Moderators to Login Hidden." description="Allow admins/moderators to login hidden." />
+                <action name="avchat3.admin_can_view_ips" title="Allow Admins/Moderators to View Users IP's." description="Allow admins/moderators to view users IP's." />
+                <action name="avchat3.admin_can_ban_other_admins" title="Allow Admins/Moderators to Ban Other Admins/Moderators" description="Allow admins/moderators to ban other admins/moderators" />
+                <action name="avchat3.admin_can_kick_other_admins" title="Allow Admins/Moderators to Kick Other Admins/Moderators" description="Allow admins/moderators to kick other admins/moderators" />
+				<action name="avchat3.admin_can_stop_streams" title="Allow Admins/Moderators to Stop a Certain User's Audio/Video Stream" description="Allow admins/moderators to stop a certain user's Audio/Video stream" />
+				<action name="avchat3.admin_can_silence_other_admins" title="Allow Admins/Moderators to Silence Other Admins." description="Allow admins/moderators to silence other admins." />
+				<action name="avchat3.admin_can_silence_from_room" title="Allow Admins/Moderators to Silence a Specific User from Current Room." description="Allow admins/moderators to silence a specific user from current room." />
+				<action name="avchat3.admin_can_kick_from_1_room" title="Allow Admins/Moderators to See the &quot;KICK FROM THIS ROOM&quot; Button in the User Side Menu Window." description="Allow admins/moderators to see the &quot;KICK FROM THIS ROOM&quot; button in the user side menu window." />
+				
+				
+        </section>
+</access>

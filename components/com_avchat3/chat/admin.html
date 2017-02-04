@@ -1,0 +1,413 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AVChat 3 Admin Area</title>
+<link rel="icon" href="favicon.ico">
+<script type="text/javascript" src="codebird-js/sha1.js"></script>
+<script type="text/javascript" src="codebird-js/codebird.js"></script>
+
+<script src="tinycon.min.js"></script>
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript">
+	var flashvars = {
+		lstext : "Loading Settings...",
+		sscode : "php",
+		userId : ""
+	};
+	var params = {
+		quality : "high",
+		bgcolor : "#F1F1F1", //background color for light theme: #F1F1F1; background color for dark theme: #101622 (or use any other color for your custom made theme)
+		play : "true",
+		loop : "false",
+		allowFullScreen : "true"
+	};
+	var attributes = {
+		name : "index_embed",
+		id :   "index_embed",
+		align : "middle"
+	};
+	
+	var current_url = location.toString();
+	if(current_url.indexOf("?twitter=true") == -1){
+		swfobject.embedSWF("admin.swf", "myContent", "100%", "100%", "10.3.0", "", flashvars, params, attributes);
+	}
+	var mobile = false;
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.indexOf("ipad") != -1 || ua.indexOf("iphone") != -1 || ua.indexOf("android") != -1 || ua.indexOf("ipod") != -1 || ua.indexOf("windows ce") != -1 || ua.indexOf("windows phone") != -1){
+		mobile = true;
+	}
+</script>
+<!-- JS callback API --> 
+<script>
+	function onSendGift(giftsUrl){
+		//alert("onSendGift("+giftsUrl+")");
+		//this function is called when "Send Gift" button is pressed inside user's side menu if sendGiftThroughJSApi is set to 1 in avc_settings.xxx
+		//giftURL: the value of the giftsUrl variable received from avc_settings.xxx
+	}
+	
+	function onViewProfile(profileURL){
+		//alert("onViewProfile("+profileURL+")");
+		//this function is called when "Open Profile" button is pressed inside user's side menu if viewProfileThroughJSApi is set to 1 in avc_settings.xxx
+		//profileURL: the profileUrl sent via avc_settings.xxx through profileUrl option
+	}
+	
+	function maxStreamsReached(siteId,username, maxStreams){
+		//alert("maxStreamsReached("+siteId+","+username+","+maxStreams+")");
+		//this function is called when "View Cam" button is pressed in the user side menu in the users list and the user has reached the maxStreams limit in avc_settings.xxx
+		//siteId: the siteId value as sent by avc_settings.xxx
+		//username: the username
+		//maxStreams : the maxStreams value from avc_settings.xxx
+	}
+	
+	function onPrivateMessageAttempt(siteId,username,senderId,senderUsername){
+		//alert("onPrivateMessageSent("+siteId+","+username + "," + senderId + "," + senderUsername +")");
+		//this function is called when Send Private message is pressed and the value of pmEnabled in avc_settings.xxx is set to 3.
+		//siteId: the siteId value as sent by avc_settings.xxx
+		//username: the username
+		//senderId: the siteId value of the user attempting to send a message
+		//senderUsername: the username of the user attempting to send a message
+	}
+	
+	function freeVideoTimeLimitReached(siteId,username, freeVideoTime){//DEPRECATED, replaced by onPPVUpdate
+		//alert("freeVideoTimeLimitReached("+siteId+","+username+","+freeVideoTime+")");
+		//this function is called when "View Cam" button is pressed in the user side menu in the users list and the user has reached the freeVideoTime/day limit in avc_settings.xxx
+		//username: the username
+		//freeVideoTime : the freeVideoTime value from avc_settings.xxx
+	}
+	
+	function onPPVUpdate(ppvAmountLeft, ppvInitialAmount, ppvRatio, userSiteId, sessionTimeStamp){
+		//alert(ppvAmountLeft + " " + ppvInitialAmount + " " + " " + ppvRatio + " " + userSiteId + " " + sessionTimeStamp);		
+		//this function is called inside AVChat every second after the PPV timer has started
+		//ppvAmountLeft: the amount of time/money/credits left for a particular user.
+		//ppvInitialAmount: the initial amount of time/money/credits that a user had.
+		//ppvRatio: the rate at which the ppvAmountLeft is decreased.
+		//userSiteId: the siteId value as sent by avc_settings.xxx
+		//sessionTimeStamp: the timestamp from the last login
+	}
+	
+	function shareOnTwitter(URL,message){
+		newwindow=window.open('https://twitter.com/intent/tweet?text='+message+" "+URL,'Share on Twitter','height=425,width=640');
+		if (window.focus) {newwindow.focus()}
+	}
+	
+</script>
+</head>
+<body style="padding:0px;margin:0px">
+<div id="fb-root"></div>
+<!-- This script below is used to prevent ghost users on Internet Explorer --> 
+<script type="text/javascript">
+window.onbeforeunload = function(){
+	// pure JS
+	if (navigator.appName == 'Microsoft Internet Explorer'){
+		var swf = document.getElementById('index_embed');
+		swf.disconnect();
+	}
+}
+</script> 
+
+<!-- This script below is used to the video chat from being open in a iframe by another website --> 
+<script type="text/javascript">
+if (top.location.href != self.location.href)
+  top.location.href = self.location.href;
+</script> 
+
+<!-- this script calls the Facebook api--> 
+<script>
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+  
+  var dir = location.pathname.substring(0,location.pathname.lastIndexOf('/')+1);
+  
+    FB.init({
+      appId      : '258600982306', // App ID
+      channelUrl : window.location.protocol+'//' + dir + '/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+  };
+  
+   function onLogin(){
+	FB.getLoginStatus(function(response) {
+	  if (response.status === 'connected') {
+		// connected
+		 getFacebookData();	
+	  } else if (response.status === 'not_authorized') {
+		// not_authorized
+		 login();
+	  } else {
+		// not_logged_in
+		login();
+	  }
+	 });
+  }
+  
+  function login() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            // connected
+			getFacebookData();
+        } else {
+            // cancelled
+        }
+    });
+}
+
+	function getFacebookData() {
+		FB.api('/me', function(response) {
+			var flashObj = document.getElementById('index_embed');
+			flashObj.afterLogin(response);
+		});
+	}
+
+	//functions called by share window
+	function shareChatURL(URL,message){
+		FB.ui({
+		  method: 'feed',
+		  link: URL,
+		  name: message,
+		}, function(response){});
+	}
+	
+	function inviteFriends(URL){
+		FB.ui({
+			method: 'send',
+			display: 'popup',
+			link: URL,
+		});
+	}
+	
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+<!-- this script calls the Twitter API--> 
+<script>
+
+	function loginWithTwitter(){
+	
+		var cb = new Codebird;
+		
+		var consumerKey = "DFN406qvQW2VD97RN5A5DH6JL";
+		var consumerSecret = "tkYUmRZUx5Un99GKFDH0PSqXSt0tO6zw07BBC8QAuEyEptsPUk";
+		
+		var pathToAVChat = "http://avchat.net/demos/avchat30";
+		
+		window.open(pathToAVChat + '/ajax-loading.gif','Twitter Login','height=678,width=624');
+		
+		cb.setConsumerKey(consumerKey, consumerSecret);
+		
+		setCookie("consumerKey",consumerKey,7);
+		setCookie("consumerSecret",consumerSecret,7);
+		
+		//get a request token
+		cb.__call(
+			"oauth_requestToken",
+			{oauth_callback: pathToAVChat + "/admin.html?twitter=true"},
+			function (reply) {
+				// store it
+				setCookie("requestToken",reply.oauth_token,7);
+				setCookie("requestTokenSecret",reply.oauth_token_secret,7);
+				
+				cb.setToken(getCookie("requestToken"), getCookie("requestTokenSecret"));
+				
+				// get the authorize screen URL
+				cb.__call(
+					"oauth_authorize",
+					{},
+					function (auth_url) {
+						twitterWindow = window.open(auth_url,'Twitter Login','height=480,width=640');
+						
+					}
+				);
+				
+			}
+		);
+	}
+	
+	
+
+	window.onload = function onTwitterCallBack(){
+		
+		var current_url = location.toString();
+	
+		if(current_url.indexOf("oauth_verifier") != -1){
+		
+			var cb          = new Codebird;
+		
+			var consumerKey = getCookie("consumerKey");
+			var consumerSecret = getCookie("consumerSecret");
+			
+			var theMatch    = current_url.match(/\?(.+)$/) + "";
+			var query       = theMatch.split("&");
+			var parameters  = {};
+			var parameter;
+		
+			cb.setConsumerKey(consumerKey, consumerSecret);
+		
+			for (var i = 0; i < query.length; i++) {
+				parameter = query[i].split("=");
+				if (parameter.length === 1) {
+					parameter[1] = "";
+				}
+				parameters[decodeURIComponent(parameter[0])] = decodeURIComponent(parameter[1]);
+				//alert(parameters[decodeURIComponent(parameter[0])]);	
+			}
+		
+							
+		// check if oauth_verifier is set
+			if (typeof parameters.oauth_verifier !== "undefined") {
+				// assign stored request token parameters to codebird here
+				// ...
+				//alert("THE TOKENS " + getCookie("requestToken") + " " + getCookie("requestTokenSecret"));
+				cb.setToken(getCookie("requestToken"), getCookie("requestTokenSecret"));
+				
+				cb.__call(
+					"oauth_accessToken",
+					{
+						oauth_verifier: parameters.oauth_verifier
+					},
+					function (reply) {
+						cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+						//alert("REPLY " + reply.request + " " +reply.error + " " + reply.httpstatus + " " +reply.oauth_token + " "+ reply.user_id + " " + reply.screen_name);
+						/*for(var propertyName in reply){
+							alert("REPLY FINAL " + propertyName);
+						}*/
+						//alert("Window " + window.opener);
+						
+						cb.__call(
+							"users_show",
+							{screen_name: reply.screen_name},
+							function (user){
+								//alert(user.profile_image_url + " " +reply.user_id + " " + reply.screen_name);
+								window.opener.setTwitterValues(reply.user_id,reply.screen_name,user.profile_image_url);
+								window.close();
+							}
+						)
+					}
+				);
+			}
+		}	
+	}
+	
+	
+	//this function is valid only in the parent window
+	function setTwitterValues(userId,screenName,profileImageURL){
+		//alert(userId + " " + screenName + " " + profileImageURL);
+				
+		var flashObj = document.getElementById('index_embed');
+		flashObj.afterTwitterLogin(userId,screenName,profileImageURL);
+	}
+	
+
+	// cookie functions
+	function setCookie(c_name,value,exdays)
+	{
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+		document.cookie=c_name + "=" + c_value;
+	}
+	
+	function getCookie(c_name)
+	{
+		var c_value = document.cookie;
+		var c_start = c_value.indexOf(" " + c_name + "=");
+		
+		if (c_start == -1){
+			c_start = c_value.indexOf(c_name + "=");
+		}
+		if (c_start == -1){
+		  c_value = null;
+		}
+		else{
+			  c_start = c_value.indexOf("=", c_start) + 1;
+			  var c_end = c_value.indexOf(";", c_start);
+			  if (c_end == -1){
+				c_end = c_value.length;
+			  }
+			c_value = unescape(c_value.substring(c_start,c_end));
+			}
+		return c_value;
+	}
+
+
+
+</script>
+
+
+<!-- This script changes the window title when a user receives a new message in chat -->
+<script>
+	var isActive;
+	var count = 0;
+	var localTotal = 0;
+	
+	window.onfocus = function () { 
+		console.log("window.onfocus")
+		isActive = true; 
+		count=0;	
+		//we update the favicon
+		updateFavIcon()
+	}; 
+	
+	window.onblur = function () { 
+		console.log("window.onblur")
+		count=0;
+		isActive = false; 
+	};
+	
+	function newTotalUnreadMsgInInactiveTabs(total){
+		console.log("newTotalUnreadMsgInInactiveTabs("+total+")")
+		//total is the number of unread messages in inactive tabs inside AVChat
+
+		//we also save the value locally in ase it needs to be used by onNewMessageReceivedInActiveTab
+		localTotal=total;
+		
+		//we update the favicon
+		updateFavIcon()
+	}
+	
+	function updateFavIcon(){
+		Tinycon.setBubble(parseInt(localTotal)+parseInt(count))
+	}
+	
+	function  onNewMessageReceivedInActiveTab(){
+		console.log("onNewMessageReceivedInActiveTab()")
+		//this function is called when a new message is received in the active tab inside AVChat
+		
+		//we only update the favicon when the browser tab containing AVChat is not active
+		if (!isActive){
+			count++
+			updateFavIcon()
+		}
+	}
+	
+</script>
+
+<div id="myContent">
+  <div id="av_message" style="color:#ff0000">&nbsp;</div>
+</div>
+<script type="text/javascript">
+
+var dir = location.pathname.substring(0,location.pathname.lastIndexOf('/')+1);
+
+	if(mobile == true){
+		/*document.getElementById('av_message').innerHTML = 'This content requires Adobe Flash Player, which is not supported by your device. This content can be viewed on a desktop computer or on mobile devices that support Flash Player.';*/
+		window.location.href = dir + "ws/m.php";
+	}else{
+		document.getElementById('av_message').innerHTML = 'You do not have the proper Flash Player installed. Click below to download the 	newest version of Flash Player: <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>';
+		if(current_url.indexOf("?twitter=true") != -1){
+			document.getElementById("myContent").innerHTML = "<img src='ajax-loading.gif'></img>";
+		}
+	}
+</script>
+</div>
+</body>
+</html>

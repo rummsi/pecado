@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <extension version="2.5" type="file" method="upgrade">
+      <name>pkg_lang_freestyle_testimonials</name>
+      <version>1.12.4</version>
+      <creationDate>08-ago-2015</creationDate>
+      <author>Carosouza</author>
+      <authorEmail>carosouza63@hotmail.com</authorEmail>
+      <authorUrl></authorUrl>
+      <copyright>Copyright (C) 20133. All rights reserved.</copyright>
+      <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+      <description>File translate for pt-PT</description>
+      <fileset>
+          <!-- Admin component language folder -->
+          <files folder="admin" target="administrator/language/pt-PT">
+              <filename>pt-PT.com_fst.ini</filename>
+              <filename>pt-PT.com_fst.sys.ini</filename>
+			  <filename>pt-PT.com_fst.menu.ini</filename>
+          </files>
+
+          <!-- Plugin language files -->
+          <files folder="site" target="language/pt-PT">
+              <filename>pt-PT.com_fst.ini</filename>
+          </files>
+
+      </fileset>
+    <!--<updateservers>
+        <server type="collection" priority="1" name="zz-ZZ Language Updates">http://update.zzZZ.com/translationlist.xml</server>
+    </updateservers>-->
+  </extension>

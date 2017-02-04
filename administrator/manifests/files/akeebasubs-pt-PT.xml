@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="file" version="1.6" method="upgrade" client="site">
+    <name><![CDATA[akeebasubs - pt-PT]]></name>
+    <author><![CDATA[AkeebaBackup.com]]></author>
+    <authorurl>http://www.akeebabackup.com</authorurl>
+	<copyright>Copyright (C)2015 AkeebaBackup.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <version>/Users/nikosdion/Projects/akeeba/akeebasubs/build/..</version>
+    <creationDate>19 Mar 2015</creationDate>
+    <description><![CDATA[Portuguese (Portugal) translation file for Akeeba Subscriptions]]></description>
+	<fileset>
+		<files folder="backend" target="administrator/language/pt-PT">
+			<filename>pt-PT.com_akeebasubs.ini</filename>
+			<filename>pt-PT.com_akeebasubs.menu.ini</filename>
+			<filename>pt-PT.com_akeebasubs.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_adminemails.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_adminemails.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_agreetotos.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_agreetotos.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_atscredits.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_atscredits.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_autocity.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_autocity.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_canalyticscommerce.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_canalyticscommerce.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_contentpublish.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_contentpublish.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_customfields.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_customfields.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_invoices.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_invoices.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_iproperty.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_iproperty.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_joomla.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_joomla.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_joomlaprofilesync.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_joomlaprofilesync.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_needslogout.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_needslogout.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_recaptcha.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_recaptcha.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_slavesubs.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_slavesubs.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_sql.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_sql.sys.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_subscriptionemails.ini</filename>
+			<filename>pt-PT.plg_akeebasubs_subscriptionemails.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_2checkout.ini</filename>
+			<filename>pt-PT.plg_akpayment_2checkout.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_2conew.ini</filename>
+			<filename>pt-PT.plg_akpayment_2conew.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_none.ini</filename>
+			<filename>pt-PT.plg_akpayment_none.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_offline.ini</filename>
+			<filename>pt-PT.plg_akpayment_offline.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_paymill.ini</filename>
+			<filename>pt-PT.plg_akpayment_paymill.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypal.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypal.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypalpaymentspro.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypalpaymentspro.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypalproexpress.ini</filename>
+			<filename>pt-PT.plg_akpayment_paypalproexpress.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_skrill.ini</filename>
+			<filename>pt-PT.plg_akpayment_skrill.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_stripe.ini</filename>
+			<filename>pt-PT.plg_akpayment_stripe.sys.ini</filename>
+			<filename>pt-PT.plg_akpayment_viva.ini</filename>
+			<filename>pt-PT.plg_akpayment_viva.sys.ini</filename>
+			<filename>pt-PT.plg_content_aslink.ini</filename>
+			<filename>pt-PT.plg_content_aslink.sys.ini</filename>
+			<filename>pt-PT.plg_content_asrestricted.ini</filename>
+			<filename>pt-PT.plg_content_asrestricted.sys.ini</filename>
+			<filename>pt-PT.plg_content_astimedrelease.ini</filename>
+			<filename>pt-PT.plg_content_astimedrelease.sys.ini</filename>
+			<filename>pt-PT.plg_system_asexpirationnotify.ini</filename>
+			<filename>pt-PT.plg_system_asexpirationnotify.sys.ini</filename>
+			<filename>pt-PT.plg_system_aslogoutuser.ini</filename>
+			<filename>pt-PT.plg_system_aslogoutuser.sys.ini</filename>
+			<filename>pt-PT.plg_system_asuserregredir.ini</filename>
+			<filename>pt-PT.plg_system_asuserregredir.sys.ini</filename>
+			<filename>pt-PT.plg_user_aslogoutuser.ini</filename>
+			<filename>pt-PT.plg_user_aslogoutuser.sys.ini</filename>
+		</files>
+		<files folder="frontend" target="language/pt-PT">
+			<filename>pt-PT.com_akeebasubs.ini</filename>
+			<filename>pt-PT.mod_aksexpires.ini</filename>
+			<filename>pt-PT.mod_aksexpires.sys.ini</filename>
+			<filename>pt-PT.mod_akslevels.ini</filename>
+			<filename>pt-PT.mod_akslevels.sys.ini</filename>
+			<filename>pt-PT.mod_aksubslist.ini</filename>
+			<filename>pt-PT.mod_aksubslist.sys.ini</filename>
+		</files>
+	</fileset>
+</extension>

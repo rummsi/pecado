@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="2.5" type="template" method="upgrade" client="site">
+	<name>Socialize</name>
+	<version>1.2.9</version>
+	<creationDate>September 2014</creationDate>
+	<author>JomSocial</author>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>
+	<copyright>Copyright (C), iJoomla Inc.</copyright>
+	<license>license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<t3>
+		<base>base</base>
+	</t3>
+	<description>
+		<![CDATA[
+		<div align="center">
+			<div style="background-color:#2c3e50;border-color:#D6E9C6;color: #468847;padding: 35px 20px; margin-bottom: 20px">
+				<a href="http://socialize.jomsocial.com/"><img src="http://socialize.jomsocial.com/images/Socialize-FLwhite-01-200-trans.fw.png" alt="Socialize, Bringing the Social Back" width="220" height="99"></a>
+				<h4 style=" font-size: 16px; margin: 21px 0;color: #f1f1f1; color:rgba(255,255,255, .4);"><a href="http://socialize.jomsocial.com/" title="">Home</a> | <a href="http://socialize.jomsocial.com/" title="">Demo</a></h4>
+				<p> </p>
+				<span style="color:#FFf">Note: Socialize requires T3 plugin to be installed and enabled</span><p></p>
+				<span>and it is highly recommended to install community toolbar module at top-header position.</span>
+				<p></p>
+				<p style="color: #f9f9f9;margin-top: 20px;padding-top: 20px;border-top: 1px dotted rgba(255,255,255,.2);">
+					Copyright 2014 <a href="http://www.jomsocial.com/" title="Visit JomSocial.com!">JomSocial.com</a>.
+				</p>
+			</div>
+			<style>table.adminform{width: 100%;}</style>
+		</div>
+		]]>
+	</description>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>thememagic.xml</filename>
+		<filename>templateInfo.php</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>templateHook.php</filename>
+		<folder>etc</folder>
+		<folder>fonts</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>less</folder>
+		<folder>language</folder>
+		<folder>images</folder>
+		<folder>tpls</folder>
+		<folder>html</folder>
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_socialize.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_socialize.sys.ini</language>
+	</languages>
+
+	<positions>
+		<position>languageswitcherload</position>
+		<position>top</position>
+		<position>top-header</position>
+		<position>head-search</position>
+		<position>mainnav</position>
+		<position>navhelper</position>
+		<position>breadcrumbs</position>
+		<position>sidebar-1</position>
+		<position>sidebar-2</position>
+		<position>mast-col</position>
+		<position>footer</position>
+		<position>home-0</position>
+		<position>home-1</position>
+		<position>home-2</position>
+		<position>home-3</position>
+		<position>home-4</position>
+		<position>home-5</position>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>position-10</position>
+		<position>position-11</position>
+		<position>position-12</position>
+		<position>position-13</position>
+		<position>position-14</position>
+		<position>position-15</position>
+		<position>footer-0</position>
+		<position>footer-1</position>
+		<position>footer-2</position>
+		<position>footer-3</position>
+		<position>footer-4</position>
+		<position>footer-5</position>
+		<position>footer-6</position>
+		<position>footer-7</position>
+		<position>footer-8</position>
+		<position>footer-9</position>
+		<position>footer-10</position>
+		<position>debug</position>
+		<position>spotlight-2</position>
+		<position>component-top</position>
+		<position>component-bottom</position>
+	</positions>
+
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/t3/includes/depend">
+
+			<!-- Sample for add or disable template parameters -->
+			<!--fieldset name="menu_params" label="T3_PARAMS_MEGAMENU">
+				<field name="group_disable" type="t3depend" function="@group">
+					<option for="menu_as_bg" value="no">menu_as_bg</option>
+				</field>
+			</fieldset-->
+
+		</fields>
+	</config>
+
+	<updateservers>
+        <server name="Socialize Template" type="extension">http://www.jomsocial.com/socialize.xml</server>
+	</updateservers>
+
+</extension>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.3.0" type="component" method="upgrade">
+    <name>AkeebaSubs</name>
+    <creationDate>2015-12-22</creationDate>
+    <author>Nicholas K. Dionysopoulos</author>
+    <authorEmail>nicholas@akeebabackup.com</authorEmail>
+    <authorUrl>http://www.akeebabackup.com</authorUrl>
+    <copyright>Copyright (c)2010-2015 Nicholas K. Dionysopoulos</copyright>
+    <license>GNU GPL v3 or later</license>
+    <version>5.0.2</version>
+    <description>Akeeba Subscriptions v.5.0.2</description>
+
+    <!-- Public front end files -->
+    <files folder="frontend">
+        <filename>akeebasubs.php</filename>
+        <filename>router.php</filename>
+
+        <folder>Controller</folder>
+        <folder>Dispatcher</folder>
+        <folder>elements</folder>
+        <folder>Model</folder>
+        <folder>Toolbar</folder>
+        <!-- Not a typo. We need BOTH views and View folders, for different reasons. -->
+        <folder>View</folder>
+        <folder>views</folder>
+    </files>
+
+    <!-- Front end translation files -->
+    <languages folder="language/frontend">
+        <language tag="en-GB">en-GB/en-GB.com_akeebasubs.ini</language>
+    </languages>
+
+    <!-- Media files -->
+    <media destination="com_akeebasubs" folder="media">
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>invoices</folder>
+        <folder>js</folder>
+        <folder>tcpdf</folder>
+    </media>
+
+    <!-- Administrator back-end section -->
+    <administration>
+        <!-- Administration menu -->
+        <menu view="cpanel" img="../media/com_akeebasubs/images/akeebasubs-16.png">COM_AKEEBASUBS</menu>
+        <!-- Back-end files -->
+        <files folder="backend">
+            <filename>access.xml</filename>
+            <filename>akeebasubs.php</filename>
+            <filename>config.xml</filename>
+            <filename>fof.xml</filename>
+            <filename>version.php</filename>
+
+            <folder>assets</folder>
+            <folder>Controller</folder>
+            <folder>CustomField</folder>
+            <folder>Dispatcher</folder>
+            <folder>Form</folder>
+            <folder>Helper</folder>
+            <folder>invoices</folder>
+            <folder>Model</folder>
+            <folder>PluginAbstracts</folder>
+            <folder>sql</folder>
+            <folder>Toolbar</folder>
+            <folder>View</folder>
+        </files>
+
+        <!-- Back-end translation files -->
+        <languages folder="language/backend">
+            <language tag="en-GB">en-GB/en-GB.com_akeebasubs.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_akeebasubs.sys.ini</language>
+        </languages>
+    </administration>
+
+    <!-- Installation script -->
+    <scriptfile>script.com_akeebasubs.php</scriptfile>
+</extension>

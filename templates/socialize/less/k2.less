@@ -1,0 +1,98 @@
+/** 
+ *------------------------------------------------------------------------------
+ * @package       T3 Framework for Joomla!
+ *------------------------------------------------------------------------------
+ * @copyright     Copyright (C) 2004-2013 JoomlArt.com. All Rights Reserved.
+ * @license       GNU General Public License version 2 or later; see LICENSE.txt
+ * @authors       JoomlArt, JoomlaBamboo, (contribute to this project at github 
+ *                & Google group to become co-author)
+ * @Google group: https://groups.google.com/forum/#!forum/t3fw
+ * @Link:         http://t3-framework.org 
+ *------------------------------------------------------------------------------
+ */
+
+
+// ---------------------------------------------------------
+// K2 STYLING
+// ---------------------------------------------------------
+
+
+// Pagination
+// ---------------------------------------------------------
+.k2Pagination {
+  margin: 20px 0;
+}
+.k2Pagination ul.pagination-list {
+  display: inline-block;
+  margin-left: 0;
+  margin-bottom: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  padding: 0;
+}
+.k2Pagination ul > li {
+  display: inline;
+}
+.k2Pagination ul > li > a, .k2Pagination ul > li > span {
+  float: left;
+  padding: 4px 12px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+.k2Pagination ul > .disabled > span, .k2Pagination ul > .disabled > a, .k2Pagination ul > .disabled > a:hover, .k2Pagination ul > .disabled > a:focus {
+  color: #999;
+  background-color: transparent;
+  cursor: default;
+}
+.k2Pagination ul > li:first-child > a, .k2Pagination ul > li:first-child > span {
+  border-left-width: 1px;
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-left-radius: 4px;
+}
+.k2Pagination ul > li:last-child > a, .k2Pagination ul > li:last-child > span {
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-bottom-right-radius: 4px;
+}
+.k2Pagination ul > li > a:hover, .k2Pagination ul > li > a:focus, .k2Pagination ul > .active > a, .k2Pagination ul > .active > span {
+  background-color: #f5f5f5;
+}
+.k2Pagination ul > .active > a, .k2Pagination ul > .active > span {
+  color: #999;
+  cursor: default;
+}
+
+.counter {
+  float: right;
+  line-height: 1;
+  margin: 10px 0;
+  text-align: right;
+}
+
+//modal fix
+#k2Container span .modal, span.itemEditLink a.modal {
+  position: static;
+  left: 0;
+  display: block;
+  width: auto;
+  margin-left: 0;
+  border: none;
+  box-shadow: none;
+}

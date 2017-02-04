@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <extension version="2.5" type="file" method="upgrade">
+      <name>pkg_lang_fsj_transman_pro</name>
+      <version>3.1.0.1848</version>
+      <creationDate>13-feb-2014</creationDate>
+      <author>Carosouza</author>
+      <authorEmail>carosouza63@hotmail.com</authorEmail>
+      <authorUrl>http://www.bebetech.com.br</authorUrl>
+      <copyright>Copyright (C) 20133. All rights reserved.</copyright>
+      <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+      <description>File translate for pt-PT</description>
+      <fileset>
+          <!-- Admin component language folder -->
+          <files folder="admin" target="administrator/language/pt-PT">
+              <filename>pt-PT.com_fsj_main.ini</filename>
+              <filename>pt-PT.com_fsj_main.sys.ini</filename>
+			  <filename>pt-PT.com_fsj_transman.ini</filename>
+              <filename>pt-PT.com_fsj_transman.sys.ini</filename>
+			  <filename>pt-PT.lib_fsj_core.ini</filename>
+          </files>
+
+          <!-- Site language files -->
+          <files folder="site" target="language/pt-PT">
+              <filename>pt-PT.com_fsj_main.ini</filename>
+              <filename>pt-PT.com_fsj_transman.ini</filename>
+			  <filename>pt-PT.lib_fsj_core.ini</filename>
+          </files>
+
+      </fileset>
+    <!--<updateservers>
+        <server type="collection" priority="1" name="zz-ZZ Language Updates">http://update.zzZZ.com/translationlist.xml</server>
+    </updateservers>-->
+  </extension>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<com>
+  <image>com_fsj_transman</image>
+  <require>
+    <autobuild>language</autobuild>
+    <autobuild>file</autobuild>
+    <!--  -->
+  </require>
+  <images>
+    <image w="32">arrow-up</image>
+    <image w="48">file</image>
+    <!--  -->
+  </images>
+  <name>
+    <item id="transman_language">
+      <name>COM_FSJ_TRANSMAN_ITEMS_TRANSMAN_LANGUAGE</name>
+      <names>COM_FSJ_TRANSMAN_ITEMS_TRANSMAN_LANGUAGES</names>
+      <long_prefix id="transman.language"/>
+    </item>
+    <item id="transman_file">
+      <name>COM_FSJ_TRANSMAN_ITEMS_TRANSMAN_FILE</name>
+      <names>COM_FSJ_TRANSMAN_ITEMS_TRANSMAN_FILES</names>
+      <long_prefix id="transman.file"/>
+    </item>
+    <!--  -->
+  </name>
+  <admin>
+    <section nonmenusection="1" name="FSJ_TM_TRANSLATIONS">
+      <item id="language" icon="language">
+        <title>COM_FSJ_TRANSMAN_DATA_LANGUAGE</title>
+        <description>COM_FSJ_TRANSMAN_DATA_LANGUAGE_DESC</description>
+      </item>
+      <!--  -->
+    </section>
+  </admin>
+  <settings>
+    <tab id="options" name="FSJ_TRANSMAN_SETTING_TAB_OPTIONS"/>
+    <fields display="FSJ_TRANSMAN_SETTING_SET_TM_OPTIONS" name="tm_options" tab="options">
+      <field name="save_notify" type="fsjyesno" default="1" label="FSJ_TRANSMAN_SETTING_TM_OPTIONS_SAVE_NOTIFY" description="FSJ_TRANSMAN_SETTING_TM_OPTIONS_SAVE_NOTIFY_DESC"/>
+      <field name="backup" type="fsjyesno" default="1" label="FSJ_TRANSMAN_SETTING_TM_OPTIONS_BACKUP" description="FSJ_TRANSMAN_SETTING_TM_OPTIONS_BACKUP_DESC"/>
+      <field name="quotes" type="fsjyesno" default="1" label="FSJ_TRANSMAN_SETTING_TM_OPTIONS_QUOTES" description="FSJ_TRANSMAN_SETTING_TM_OPTIONS_QUOTES_DESC"/>
+      <!--  -->
+    </fields>
+    <fields display="FSJ_TRANSMAN_SETTING_SET_TM_BASE" name="tm_base" tab="options">
+      <field name="baselang" type="fsjsqlcombo" default="en-GB" label="FSJ_TRANSMAN_SETTING_TM_BASE_BASELANG" description="FSJ_TRANSMAN_SETTING_TM_BASE_BASELANG_DESC">
+        <fsjsqlcombo>
+          <sql>SELECT element as value, name as text FROM #__extensions WHERE type = 'language' GROUP BY element ORDER BY name</sql>
+        </fsjsqlcombo>
+      </field>
+    </fields>
+  </settings>
+  <!--  -->
+  <settings_defaults>{"tm_options":{"save_notify":"1","backup":"1","quotes":"1"},"tm_base":{"baselang":"en-GB"}}</settings_defaults>
+</com>
