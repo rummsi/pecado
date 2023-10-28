@@ -20,7 +20,11 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-JHTML::_('behavior.framework', true);
+use Joomla\CMS\HTML\HTMLHelper;
+
+// Including jQuery
+HTMLHelper::_('script', 'path/to/your/jquery.js', ['version' => 'auto', 'relative' => true]);
+
 /* The following line gets the application object for things like displaying the site name */
 $app = Factory::getApplication();
 $tplparams	= $app->getTemplate(true)->params;
