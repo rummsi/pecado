@@ -8,9 +8,9 @@
  */
 
 // no direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die;use Joomla\CMS\Factory;
 
-$app = JFactory::getApplication();
+$app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
 
 if ($templateparams->get('html5') != 1) :

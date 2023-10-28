@@ -9,8 +9,10 @@
 
 // no direct access
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
 $params =& $this->item->params;
-$app = JFactory::getApplication();
+$app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
 $canEdit	= $this->item->params->get('access-edit');
 
