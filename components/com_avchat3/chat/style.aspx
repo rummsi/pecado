@@ -1,1 +1,0 @@
-<%@ Page Language="C#" Debug="true" CodeFile="style.aspx.cs" Inherits="AVChat.Style" AutoEventWireup="true" %>

@@ -1,1 +1,0 @@
-<%@ Page Language="C#" Debug="true" CodeFile="getRecordedVideosInfo.aspx.cs" Inherits="AVChat.getRecordedVideosInfo" AutoEventWireup="true" %>

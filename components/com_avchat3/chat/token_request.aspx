@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="token_request.aspx.cs" Inherits="AVChat.TokenRequest" %>

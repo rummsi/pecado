@@ -1,1 +1,0 @@
-<%@ Page Language="C#" CodeFile="writeuserslist.aspx.cs" Inherits="AVChat.WriteUsersList" AutoEventWireup="true" %>

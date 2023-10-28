@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="token_verify.aspx.cs" Inherits="AVChat.TokenVerify" %>

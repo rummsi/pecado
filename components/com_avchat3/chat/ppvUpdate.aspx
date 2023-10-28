@@ -1,1 +1,0 @@
-<%@ Page Language="C#" Debug="true" CodeFile="ppvUpdate.aspx.cs" Inherits="AVChat.PPV" AutoEventWireup="true" %>
