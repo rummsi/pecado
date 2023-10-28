@@ -22,9 +22,9 @@ if ($templateparams->get('html5') != 1) :
 	return;
 endif;
 
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
+HTMLHelper::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 HTMLHelper::_('behavior.tooltip');
-JHtml::core();
+HTMLHelper::core();
 
 $n = count($this->items);
 $listOrder	= $this->state->get('list.ordering');

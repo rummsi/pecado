@@ -16,7 +16,7 @@ if ($templateparams->get('html5')!=1)
 	require(JPATH_BASE.'/components/com_content/views/featured/tmpl/default_links.php');
 	//evtl. ersetzen durch JPATH_COMPONENT.'/views/...'
 } else {
-JHtml::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
+HTMLHelper::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 ?>
 
 <h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
