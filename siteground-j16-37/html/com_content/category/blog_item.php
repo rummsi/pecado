@@ -11,6 +11,8 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+
 $params =& $this->item->params;
 $app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
@@ -43,17 +45,17 @@ JHtml::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 	<ul class="actions">
 		<?php if ($params->get('show_print_icon')) : ?>
 		<li class="print-icon">
-			<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
+			<?php echo HTMLHelper::_('icon.print_popup', $this->item, $params); ?>
 		</li>
 		<?php endif; ?>
 		<?php if ($params->get('show_email_icon')) : ?>
 		<li class="email-icon">
-			<?php echo JHtml::_('icon.email', $this->item, $params); ?>
+			<?php echo HTMLHelper::_('icon.email', $this->item, $params); ?>
 		</li>
 		<?php endif; ?>
 		<?php if ($canEdit) : ?>
 		<li class="edit-icon">
-			<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
+			<?php echo HTMLHelper::_('icon.edit', $this->item, $params); ?>
 		</li>
 		<?php endif; ?>
 	</ul>
@@ -95,17 +97,17 @@ JHtml::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
 		<dd class="create">
-		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHTML::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', HTMLHelper::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_modify_date')) : ?>
 		<dd class="modified">
-		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHTML::_('date',$this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', HTMLHelper::_('date',$this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_publish_date')) : ?>
 		<dd class="published">
-		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', JHTML::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', HTMLHelper::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
@@ -115,7 +117,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 
 			<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
 				<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' , 
-				 JHTML::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
+				 HTMLHelper::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
 
 			<?php else :?>
 				<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
@@ -152,12 +154,12 @@ JHtml::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 						echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
 					elseif ($readmore = $this->item->alternative_readmore) :
 						echo $readmore;
-						echo JHTML::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+						echo HTMLHelper::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 					elseif ($params->get('show_readmore_title', 0) == 0) :
 						echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');	
 					else :
 						echo JText::_('COM_CONTENT_READ_MORE');
-						echo JHTML::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+						echo HTMLHelper::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
 					endif; ?></a>
 		</p>
 <?php endif; ?>

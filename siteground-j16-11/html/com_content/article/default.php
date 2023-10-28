@@ -8,7 +8,7 @@
  */
 
 // No direct access
-defined('_JEXEC') or die;use Joomla\CMS\Factory;
+defined('_JEXEC') or die;use Joomla\CMS\Factory;use Joomla\CMS\HTML\HTMLHelper;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -48,23 +48,23 @@ else :
 		<?php if (!$this->print) : ?>
 				<?php if ($params->get('show_print_icon')) : ?>
 				<li class="print-icon">
-						<?php echo JHtml::_('icon.print_popup',  $this->item, $params); ?>
+						<?php echo HTMLHelper::_('icon.print_popup',  $this->item, $params); ?>
 				</li>
 				<?php endif; ?>
 
 				<?php if ($params->get('show_email_icon')) : ?>
 				<li class="email-icon">
-						<?php echo JHtml::_('icon.email',  $this->item, $params); ?>
+						<?php echo HTMLHelper::_('icon.email',  $this->item, $params); ?>
 				</li>
 				<?php endif; ?>
 				<?php if ($this->user->authorise('core.edit', 'com_content.article.'.$this->item->id)) : ?>
 						<li class="edit-icon">
-							<?php echo JHtml::_('icon.edit', $this->item, $params); ?>
+							<?php echo HTMLHelper::_('icon.edit', $this->item, $params); ?>
 						</li>
 					<?php endif; ?>
 		<?php else : ?>
 				<li>
-						<?php echo JHtml::_('icon.print_screen',  $this->item, $params); ?>
+						<?php echo HTMLHelper::_('icon.print_screen',  $this->item, $params); ?>
 				</li>
 		<?php endif; ?>
 		</ul>
@@ -108,17 +108,17 @@ else :
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
 		<dd class="create">
-		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHTML::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', HTMLHelper::_('date',$this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_modify_date')) : ?>
 		<dd class="modified">
-		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHTML::_('date',$this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', HTMLHelper::_('date',$this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_publish_date')) : ?>
 		<dd class="published">
-		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', JHTML::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', HTMLHelper::_('date',$this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
@@ -128,7 +128,7 @@ else :
 
 			<?php if (!empty($this->item->contactid ) &&  $params->get('link_author') == true):?>
 				<?php 	echo JText::sprintf('COM_CONTENT_WRITTEN_BY' , 
-				 JHTML::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
+				 HTMLHelper::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid),$author)); ?>
 
 			<?php else :?>
 				<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>

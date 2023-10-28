@@ -7,7 +7,7 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+defined('_JEXEC') or die;use Joomla\CMS\HTML\HTMLHelper;
 
 
 $cparams = JComponentHelper::getParams ('com_media');
@@ -31,9 +31,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<?php // We are going to use the contact address field for the main image caption. 
 				// If we have a caption load the caption behavior. ?>
 			<?php if ($this->contact->address) {
-				JHTML::_('behavior.caption');
+				HTMLHelper::_('behavior.caption');
 			}?>
-				<?php echo JHTML::_('image',$this->contact->image, JText::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle','class' =>'caption','title'=> $this->contact->address)); ?>
+				<?php echo HTMLHelper::_('image',$this->contact->image, JText::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle','class' =>'caption','title'=> $this->contact->address)); ?>
 			</div>
 		<?php endif; ?> 	
 	</div>
@@ -63,13 +63,13 @@ $cparams = JComponentHelper::getParams ('com_media');
 	
 <div class="clr"> </div>
 	<?php  if ($this->params->get('presentation_style')!='plain'):?>
-		<?php  echo  JHtml::_($this->params->get('presentation_style').'.start', 'contact-slider'); ?>	
+		<?php  echo  HTMLHelper::_($this->params->get('presentation_style').'.start', 'contact-slider'); ?>	
 	<?php endif ?>
 <div class="encyclopedia_links">
 <?php echo $this->loadTemplate('links'); ?>
 
 </div>
 	<?php if ($this->params->get('presentation_style')!='plain'):?>
-			<?php echo JHtml::_($this->params->get('presentation_style').'.end'); ?>
+			<?php echo HTMLHelper::_($this->params->get('presentation_style').'.end'); ?>
 			<?php endif; ?>
 </div>

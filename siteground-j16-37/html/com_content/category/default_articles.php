@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
 
 $app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
@@ -22,7 +23,7 @@ if ($templateparams->get('html5') != 1) :
 endif;
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
-JHtml::_('behavior.tooltip');
+HTMLHelper::_('behavior.tooltip');
 JHtml::core();
 
 $n = count($this->items);
@@ -68,24 +69,24 @@ $listDirn	= $this->state->get('list.direction');
 			<tr>
 
 				<th class="list-title" id="tableOrdering">
-					<?php  echo JHTML::_('grid.sort', 'COM_CONTENT_HEADING_TITLE', 'a.title', $listDirn, $listOrder) ; ?>
+					<?php  echo HTMLHelper::_('grid.sort', 'COM_CONTENT_HEADING_TITLE', 'a.title', $listDirn, $listOrder) ; ?>
 				</th>
 
 				<?php if ($date = $this->params->get('list_show_date')) : ?>
 				<th class="list-date" id="tableOrdering2">
-					<?php echo JHTML::_('grid.sort', 'COM_CONTENT_'.$date.'_DATE', 'a.created', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'COM_CONTENT_'.$date.'_DATE', 'a.created', $listDirn, $listOrder); ?>
 				</th>
 				<?php endif; ?>
 
 				<?php if ($this->params->get('list_show_author',1)) : ?>
 				<th class="list-author" id="tableOrdering3">
-					<?php echo JHTML::_('grid.sort', 'JAUTHOR', 'author', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'JAUTHOR', 'author', $listDirn, $listOrder); ?>
 				</th>
 				<?php endif; ?>
 
 				<?php if ($this->params->get('list_show_hits',1)) : ?>
 				<th class="list-hits" id="tableOrdering4">
-					<?php echo JHTML::_('grid.sort', 'JGLOBAL_HITS', 'a.hits', $listDirn, $listOrder); ?>
+					<?php echo HTMLHelper::_('grid.sort', 'JGLOBAL_HITS', 'a.hits', $listDirn, $listOrder); ?>
 				</th>
 				<?php endif; ?>
 			</tr>
@@ -106,7 +107,7 @@ $listDirn	= $this->state->get('list.direction');
 
 					<?php if ($this->params->get('list_show_date')) : ?>
 					<td class="list-date">
-						<?php echo JHTML::_('date',$article->displayDate, $this->escape(
+						<?php echo HTMLHelper::_('date',$article->displayDate, $this->escape(
 						$this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
 					</td>
 					<?php endif; ?>
@@ -118,7 +119,7 @@ $listDirn	= $this->state->get('list.direction');
 				
 									<?php if (!empty($article->contactid ) &&  $this->params->get('link_author') == true):?>
 										<?php 	echo 
-										 JHTML::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$article->contactid),$author); ?>
+										 HTMLHelper::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$article->contactid),$author); ?>
 						
 									<?php else :?>
 										<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>

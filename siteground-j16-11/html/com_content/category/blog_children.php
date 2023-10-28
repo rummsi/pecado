@@ -8,7 +8,7 @@
  */
 
 // no direct access
-defined('_JEXEC') or die;use Joomla\CMS\Factory;
+defined('_JEXEC') or die;use Joomla\CMS\Factory;use Joomla\CMS\HTML\HTMLHelper;
 
 $app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
@@ -41,7 +41,7 @@ $class = ' class="first"';
                        <?php if ($this->params->get('show_subcat_desc') == 1) :?>
                         <?php if ($child->description) : ?>
                                 <div class="category-desc">
-                                        <?php echo JHtml::_('content.prepare', $child->description); ?>
+                                        <?php echo HTMLHelper::_('content.prepare', $child->description); ?>
                                 </div>
                         <?php endif; ?>
                         <?php endif; ?>
