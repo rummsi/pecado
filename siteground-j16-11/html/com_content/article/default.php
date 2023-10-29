@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -87,7 +88,7 @@ else :
                 <dd class="parent-category-name">
                     <?php
                     $title = $this->escape($this->item->parent_title);
-                    $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>';
+                    $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>';
                     ?>
                     <?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
                         <?php echo Text::sprintf('COM_CONTENT_PARENT', $url); ?>
@@ -100,7 +101,7 @@ else :
                 <dd class="category-name">
                     <?php
                     $title = $this->escape($this->item->category_title);
-                    $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';
+                    $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';
                     ?>
                     <?php if ($params->get('link_category') AND $this->item->catslug) : ?>
                         <?php echo Text::sprintf('COM_CONTENT_CATEGORY', $url); ?>
@@ -131,7 +132,7 @@ else :
                     <?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
                         <?php
                         echo Text::sprintf('COM_CONTENT_WRITTEN_BY',
-                                HTMLHelper::_('link', JRoute::_('index.php?option=com_contact&view=contact&id=' . $this->item->contactid), $author));
+                                HTMLHelper::_('link', Route::_('index.php?option=com_contact&view=contact&id=' . $this->item->contactid), $author));
                         ?>
                     <?php else : ?>
                     <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>

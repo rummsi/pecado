@@ -14,6 +14,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
@@ -29,7 +30,7 @@ HTMLHelper::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 <ol class="links">
 <?php foreach ($this->link_items as &$item) : ?>
 	<li>
-		<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug)); ?>">
+		<a href="<?php echo Route::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug)); ?>">
 			<?php echo $item->title; ?></a>
 	</li>
 <?php endforeach; ?>

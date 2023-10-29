@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -35,7 +36,7 @@ $class = ' class="first"';
                 ?>
                 <li<?php echo $class; ?>>
                     <?php $class = ''; ?>
-                    <span class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id)); ?>">
+                    <span class="item-title"><a href="<?php echo Route::_(ContentHelperRoute::getCategoryRoute($child->id)); ?>">
                             <?php echo $this->escape($child->title); ?></a>
                     </span>
                     <?php if ($this->params->get('show_subcat_desc') == 1) : ?>

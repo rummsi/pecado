@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -26,7 +27,7 @@ if ($templateparams->get('html5') != 1) {
     <ol class="links">
         <?php foreach ($this->link_items as &$item) : ?>
             <li>
-                <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug)); ?>">
+                <a href="<?php echo Route::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catslug)); ?>">
                     <?php echo $item->title; ?></a>
             </li>
         <?php endforeach; ?>

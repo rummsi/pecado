@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 // Create a shortcut for params.
 $canEdit = $this->item->params->get('access-edit');
@@ -32,7 +33,7 @@ if ($templateparams->get('html5') != 1) {
         <?php if ($params->get('show_title')) : ?>
             <h2>
                 <?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
-                    <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
+                    <a href="<?php echo Route::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
                         <?php echo $this->escape($this->item->title); ?></a>
                 <?php else : ?>
                     <?php echo $this->escape($this->item->title); ?>
@@ -72,7 +73,7 @@ if ($templateparams->get('html5') != 1) {
                     <?php
                     $title = $this->escape($this->item->parent_title);
                     $title = ($title) ? $title : Text::_('JGLOBAL_UNCATEGORISED');
-                    $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>';
+                    $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>';
                     ?>
                     <?php if ($params->get('link_parent_category') AND $this->item->parent_slug) : ?>
                         <?php echo Text::sprintf('COM_CONTENT_PARENT', $url); ?>
@@ -86,7 +87,7 @@ if ($templateparams->get('html5') != 1) {
                     <?php
                     $title = $this->escape($this->item->category_title);
                     $title = ($title) ? $title : Text::_('JGLOBAL_UNCATEGORISED');
-                    $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';
+                    $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)) . '">' . $title . '</a>';
                     ?>
                     <?php if ($params->get('link_category') AND $this->item->catslug) : ?>
                         <?php echo Text::sprintf('COM_CONTENT_CATEGORY', $url); ?>
@@ -117,7 +118,7 @@ if ($templateparams->get('html5') != 1) {
                     <?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
                         <?php
                         echo Text::sprintf('COM_CONTENT_WRITTEN_BY',
-                                HTMLHelper::_('link', JRoute::_('index.php?option=com_contact&view=contact&id=' . $this->item->contactid), $author));
+                                HTMLHelper::_('link', Route::_('index.php?option=com_contact&view=contact&id=' . $this->item->contactid), $author));
                         ?>
                     <?php else : ?>
                         <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
@@ -136,13 +137,13 @@ if ($templateparams->get('html5') != 1) {
         <?php
         if ($params->get('show_readmore') && $this->item->readmore) :
             if ($params->get('access-view')) :
-                $link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+                $link = Route::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
             else :
                 $menu = JSite::getMenu();
                 $active = $menu->getActive();
                 $itemId = $active->id;
-                $link1 = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
-                $returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+                $link1 = Route::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
+                $returnURL = Route::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
                 $link = new JURI($link1);
                 $link->setVar('return', base64_encode($returnURL));
             endif;

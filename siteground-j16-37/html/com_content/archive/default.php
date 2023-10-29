@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -26,7 +27,7 @@ if (!$templateparams->get('html5', 0)) {
             <?php echo $this->escape($this->params->get('page_heading')); ?>
             </h1>
             <?php endif; ?>
-        <form id="adminForm" action="<?php echo JRoute::_('index.php') ?>" method="post">
+        <form id="adminForm" action="<?php echo Route::_('index.php') ?>" method="post">
             <fieldset class="filters">
                 <legend class="hidelabeltxt"><?php echo Text::_('JGLOBAL_FILTER_LABEL'); ?></legend>
                 <div class="filter-search">

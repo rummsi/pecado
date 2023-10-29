@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -85,7 +86,7 @@ $listDirn = $this->state->get('list.direction');
                     <tr class="cat-list-row<?php echo $i % 2; ?>">
                         <?php if (in_array($article->access, $this->user->getAuthorisedViewLevels())) : ?>
                             <td class="list-title">
-                                <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid)); ?>">
+                                <a href="<?php echo Route::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid)); ?>">
                             <?php echo $this->escape($article->title); ?></a>
                             </td>
                     <?php if ($this->params->get('list_show_date')) : ?>
@@ -101,7 +102,7 @@ $listDirn = $this->state->get('list.direction');
                 <?php $author = ($article->created_by_alias ? $article->created_by_alias : $author); ?>
                 <?php if (!empty($article->contactid) && $this->params->get('link_author') == true): ?>
                     <?php echo
-                    HTMLHelper::_('link', JRoute::_('index.php?option=com_contact&view=contact&id=' . $article->contactid), $author);
+                    HTMLHelper::_('link', Route::_('index.php?option=com_contact&view=contact&id=' . $article->contactid), $author);
                     ?>
                 <?php else : ?>
                                         <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
@@ -120,8 +121,8 @@ $listDirn = $this->state->get('list.direction');
             $menu = JSite::getMenu();
             $active = $menu->getActive();
             $itemId = $active->id;
-            $link = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
-            $returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug));
+            $link = Route::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
+            $returnURL = Route::_(ContentHelperRoute::getArticleRoute($article->slug));
             $fullURL = new JURI($link);
             $fullURL->setVar('return', base64_encode($returnURL));
             ?>

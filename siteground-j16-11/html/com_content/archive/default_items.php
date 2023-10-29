@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -28,7 +29,7 @@ if (!$templateparams->get('html5', 0)) {
             <li class="row<?php echo $i % 2; ?>">
                 <h2>
                     <?php if ($params->get('link_titles')): ?>
-                        <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug)); ?>">
+                        <a href="<?php echo Route::_(ContentHelperRoute::getArticleRoute($item->slug)); ?>">
                             <?php echo $this->escape($item->title); ?></a>
                         <?php else: ?>
                         <?php echo $this->escape($item->title); ?>
@@ -42,7 +43,7 @@ if (!$templateparams->get('html5', 0)) {
                         <dd class="parent-category-name">
                             <?php
                             $title = $this->escape($item->parent_title);
-                            $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($item->parent_slug)) . '">' . $title . '</a>';
+                            $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($item->parent_slug)) . '">' . $title . '</a>';
                             ?>
                             <?php if ($params->get('link_parent_category') && $item->parent_slug) : ?>
                                 <?php echo Text::sprintf('COM_CONTENT_PARENT', $url); ?>
@@ -55,7 +56,7 @@ if (!$templateparams->get('html5', 0)) {
                         <dd class="category-name">
                             <?php
                             $title = $this->escape($item->category_title);
-                            $url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($item->catslug)) . '">' . $title . '</a>';
+                            $url = '<a href="' . Route::_(ContentHelperRoute::getCategoryRoute($item->catslug)) . '">' . $title . '</a>';
                             ?>
                             <?php if ($params->get('link_category') && $item->catslug) : ?>
                                 <?php echo Text::sprintf('COM_CONTENT_CATEGORY', $url); ?>
@@ -86,7 +87,7 @@ if (!$templateparams->get('html5', 0)) {
                             <?php if (!empty($item->contactid) && $params->get('link_author') == true): ?>
                                 <?php
                                 echo Text::sprintf('COM_CONTENT_WRITTEN_BY',
-                                        HTMLHelper::_('link', JRoute::_('index.php?option=com_contact&view=contact&id=' . $item->contactid), $author));
+                                        HTMLHelper::_('link', Route::_('index.php?option=com_contact&view=contact&id=' . $item->contactid), $author));
                                 ?>
                             <?php else : ?>
                             <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
