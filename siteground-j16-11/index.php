@@ -30,9 +30,6 @@ $template = $app->getTemplate();
 // Registrar e usar os arquivos CSS e JavaScript através do Web Asset Manager.
 $wa = $doc->getWebAssetManager();
 $wa->registerAndUseStyle('template-style', Uri::root() . 'templates/' . $template . '/css/template.css');
-$wa->registerAndUseScript('template-html5', Uri::root() . 'templates/' . $template . '/js/CreateHTML5Elements.js');
-$wa->registerAndUseScript('template-jquery', Uri::root() . 'templates/' . $template . '/js/jquery.js');
-$wa->registerAndUseScript('template-sgmenu', Uri::root() . 'templates/' . $template . '/js/sgmenu.js');
 
 // Para o jQuery, você pode querer adicionar scripts inline conforme necessário.
 $doc->addScriptOptions('jquery-no-conflict', 'jQuery.noConflict();', ['type' => 'module']); // Isso torna o jQuery no modo de não conflito.
