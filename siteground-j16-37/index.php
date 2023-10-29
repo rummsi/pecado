@@ -23,7 +23,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
 // Including jQuery
-HTMLHelper::_('script', 'js/jquery.js', ['version' => 'auto', 'relative' => true]);
+// jQuery is included by default in Joomla 4
 
 /* The following line gets the application object for things like displaying the site name */
 $app = Factory::getApplication();
@@ -34,7 +34,8 @@ $tplparams = $app->getTemplate(true)->params;
     <head>
         <jdoc:include type="head" />
         <!-- The following line loads the template CSS file located in the template folder. -->
-        <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css" type="text/css" />
+        <!-- Use the HTMLHelper class to add stylesheets -->
+<?php HTMLHelper::_('stylesheet', 'template.css', ['version' => 'auto', 'relative' => true], ['id' => 'template-style']); ?>
     </head>
     <body id="page_bg">
         <div id="sidewrap">
