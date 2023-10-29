@@ -1,4 +1,5 @@
 <?php
+
 use Joomla\CMS\Factory;
 
 $app = Factory::getApplication();
@@ -13,7 +14,7 @@ $isFrontPage = ($menu->getActive() == $menu->getDefault());
 
 if ($sg == 'banner') :
     if ($currentView == 'frontpage') :
-        // Seu código para o banner
+    // Seu código para o banner
     endif;
 else :
     // Imprime o nome do site e o link do Joomla
