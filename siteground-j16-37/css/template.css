@@ -272,3 +272,27 @@ input.inputbox, textarea.inputbox  {background: #ebebeb; background: 1px solid #
 .controls, div.control-group, .input-prepend, input-append { margin: 0 !important; padding: 0 !important;}
 .unstyled { clear: both; }
 .controls { float: left; }
+
+/* Estilos específicos para o menu do rodapé */
+#menufooter ul.menu {
+    list-style-type: none; /* Remove o estilo de lista padrão */
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove padding */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+#menufooter ul.menu li {
+    display: inline-block; /* Altera o display para inline-block */
+    margin-right: 10px; /* Espaçamento à direita, ajustável conforme necessário */
+}
+
+#menufooter ul.menu li a {
+    color: #a7a7a7; /* Cor dos links do menu, ajustável conforme necessário */
+    text-decoration: none; /* Remove o sublinhado do link */
+    padding: 5px; /* Espaçamento interno para os links, ajustável conforme necessário */
+    display: block; /* Faz o link ocupar todo o espaço do item da lista */
+}
+
+#menufooter ul.menu li a:hover {
+    color: #63b0a2; /* Cor dos links ao passar o mouse, ajustável conforme necessário */
+}

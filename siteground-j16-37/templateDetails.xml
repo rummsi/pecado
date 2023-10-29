@@ -28,7 +28,7 @@
         <position>position-0</position>
         <position>position-2</position>
         <position>position-7</position>
-        <position>footer</position>
+        <position>position-footer</position>
     </positions>
     <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.tpl_siteground-j16-37.ini</language>

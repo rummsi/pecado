@@ -32,7 +32,7 @@
         <position>position-0</position>
         <position>position-7</position>
         <position>position-4</position>
-		<position>footer</position>
+		<position>position-footer</position>
     </positions>
 
     <languages folder="language">

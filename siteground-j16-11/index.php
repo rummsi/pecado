@@ -21,100 +21,91 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
-// Ensure you update the path to jQuery and use the correct version.
-HTMLHelper::_('script', 'js/jquery.js', ['version' => 'auto', 'relative' => true]);
+$app  = Factory::getApplication();
+$doc  = Factory::getDocument(); // Em Joomla 4, usamos getDocument() para obter a instância do documento.
+$template = $app->getTemplate();
 
-/* The following line gets the application object for things like displaying the site name */
-$app = Factory::getApplication();
-$tplparams = $app->getTemplate(true)->params;
+// Registrar e usar os arquivos CSS e JavaScript através do Web Asset Manager.
+$wa = $doc->getWebAssetManager();
+$wa->registerAndUseStyle('template-style', Uri::root() . 'templates/' . $template . '/css/template.css');
+$wa->registerAndUseScript('template-html5', Uri::root() . 'templates/' . $template . '/js/CreateHTML5Elements.js');
+$wa->registerAndUseScript('template-jquery', Uri::root() . 'templates/' . $template . '/js/jquery.js');
+$wa->registerAndUseScript('template-sgmenu', Uri::root() . 'templates/' . $template . '/js/sgmenu.js');
+
+// Para o jQuery, você pode querer adicionar scripts inline conforme necessário.
+$doc->addScriptOptions('jquery-no-conflict', 'jQuery.noConflict();', ['type' => 'module']); // Isso torna o jQuery no modo de não conflito.
 ?>
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>"
-    lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-
+<html lang="<?php echo $doc->language; ?>" dir="<?php echo $doc->direction; ?>">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <jdoc:include type="head" />
-    <!-- The following line loads the template CSS file located in the template folder. -->
-    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css"
-        type="text/css" />
-
-    <!-- The following line loads the template JavaScript file located in the template folder. It's blank by default. -->
-    <script type="text/javascript"
-        src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/CreateHTML5Elements.js"></script>
-    <script type="text/javascript"
-        src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/jquery.js"></script>
-    <script type="text/javascript">jQuery.noConflict();</script>
-    <script type="text/javascript"
-        src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/sgmenu.js"></script>
-
+    <!-- Outros elementos do head que você pode precisar. -->
 </head>
 
 <body class="page_bg">
 
     <header>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <h1><a href="<?php echo $this->baseurl ?>">
-                            <?php echo $app->getCfg('sitename'); ?>
-                        </a></h1>
-                </td>
-            </tr>
-        </table>
+        <!-- É recomendável usar elementos semânticos e evitar tabelas para layout. -->
+        <h1><a href="<?php echo $this->baseurl ?>">
+                <?php echo htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8'); // Melhor prática para evitar XSS ?>
+            </a></h1>
 
-        <div class="top-menu">
+        <nav class="top-menu"> <!-- 'nav' é mais semântico para a navegação -->
             <div id="sgmenu">
                 <jdoc:include type="modules" name="menuload" />
             </div>
-        </div>
+        </nav>
 
         <div id="search">
             <jdoc:include type="modules" name="position-0" />
         </div>
     </header>
 
-    <section id="content">
+    <main id="content"> <!-- 'main' é mais semântico para o conteúdo principal -->
         <div id="topcurve">&nbsp;</div>
-        <?php if ($this->countModules('position-7 and position-4')): ?>
-            <div class="maincol">
-            <?php elseif ($this->countModules('position-7')): ?>
-                <div class="maincol_w_left">
-                <?php elseif ($this->countModules('position-4')): ?>
-                    <div class="maincol_w_right">
-                    <?php else: ?>
-                        <div class="maincol_full">
-                        <?php endif; ?>
+        <?php 
+        // Vamos simplificar a lógica aqui para torná-la mais legível e manutenível
+        $mainColClass = 'maincol_full';
+        if ($this->countModules('position-7') && $this->countModules('position-4')) {
+            $mainColClass = 'maincol';
+        } elseif ($this->countModules('position-7')) {
+            $mainColClass = 'maincol_w_left';
+        } elseif ($this->countModules('position-4')) {
+            $mainColClass = 'maincol_w_right';
+        }
+        ?>
+        <div class="<?php echo $mainColClass; ?>">
+            <!-- O resto do seu código permanece o mesmo -->
+            <?php if ($this->countModules('position-7')): ?>
+                <aside class="leftcol"> <!-- 'aside' é usado para conteúdo tangencialmente relacionado -->
+                    <jdoc:include type="modules" name="position-7" style="rounded" />
+                </aside>
+            <?php endif; ?>
 
-                        <?php if ($this->countModules('position-7')): ?>
-                            <div class="leftcol">
-                                <jdoc:include type="modules" name="position-7" style="rounded" />
-                            </div>
-                        <?php endif; ?>
+            <div class="cont">
+                <jdoc:include type="message" />
+                <jdoc:include type="component" />
+            </div>
 
-                        <div class="cont">
-                            <jdoc:include type="message" />
-                            <jdoc:include type="component" />
-                        </div>
-
-                        <?php if ($this->countModules('position-4')): ?>
-                            <div class="rightcol">
-                                <jdoc:include type="modules" name="position-4" style="rounded" />
-                            </div>
-                        <?php endif; ?>
-                        <div class="clr"></div>
-                    </div>
-    </section>
+            <?php if ($this->countModules('position-4')): ?>
+                <aside class="rightcol"> <!-- 'aside' é usado para conteúdo tangencialmente relacionado -->
+                    <jdoc:include type="modules" name="position-4" style="rounded" />
+                </aside>
+            <?php endif; ?>
+            <div class="clr"></div>
+        </div>
+    </main>
 
     <footer>
-		<?php if ($this->countModules('footer')): ?>
-				<jdoc:include type="modules" name="footer" style="rounded" />
+		<?php if ($this->countModules('position-footer')): ?>
+			<div class="footer-menu">
+				<jdoc:include type="modules" name="position-footer" style="none" />
+			</div>
 		<?php endif; ?>
-        <p style="text-align:center;">
-            <?php $sg = '';
-            include "templates.php"; ?>
-        </p>
     </footer>
 </body>
 
