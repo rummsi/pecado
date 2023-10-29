@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -33,7 +34,7 @@ $listDirn = $this->state->get('list.direction');
 <?php if (empty($this->items)) : ?>
 
     <?php if ($this->params->get('show_no_articles', 1)) : ?>
-        <p><?php echo JText::_('COM_CONTENT_NO_ARTICLES'); ?></p>
+        <p><?php echo Text::_('COM_CONTENT_NO_ARTICLES'); ?></p>
     <?php endif; ?>
 
 <?php else : ?>
@@ -42,18 +43,18 @@ $listDirn = $this->state->get('list.direction');
         <?php if ($this->params->get('filter_field') != 'hide') : ?>
             <fieldset class="filters">
                 <legend class="element-invisible">
-                    <?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?>
+                    <?php echo Text::_('JGLOBAL_FILTER_LABEL'); ?>
                 </legend>
 
                 <div class="filter-search">
-                    <label class="filter-search-lbl" for="filter-search"><?php echo JText::_('COM_CONTENT_' . $this->params->get('filter_field') . '_FILTER_LABEL') . '&#160;'; ?></label>
-                    <input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
+                    <label class="filter-search-lbl" for="filter-search"><?php echo Text::_('COM_CONTENT_' . $this->params->get('filter_field') . '_FILTER_LABEL') . '&#160;'; ?></label>
+                    <input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo Text::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
                 </div>
             <?php endif; ?>
 
             <?php if ($this->params->get('show_pagination_limit')) : ?>
                 <div class="display-limit">
-                    <?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
+                    <?php echo Text::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
                     <?php echo $this->pagination->getLimitBox(); ?>
                 </div>
             <?php endif; ?>
@@ -108,7 +109,7 @@ $listDirn = $this->state->get('list.direction');
                                 <td class="list-date">
                                     <?php
                                     echo HTMLHelper::_('date', $article->displayDate, $this->escape(
-                                                    $this->params->get('date_format', JText::_('DATE_FORMAT_LC3'))));
+                                                    $this->params->get('date_format', Text::_('DATE_FORMAT_LC3'))));
                                     ?>
                                 </td>
                             <?php endif; ?>
@@ -125,7 +126,7 @@ $listDirn = $this->state->get('list.direction');
                                         ?>
 
                                     <?php else : ?>
-                                    <?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+                                    <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
                                 <?php endif; ?>
                                 </td>
                             <?php endif; ?>	
@@ -149,7 +150,7 @@ $listDirn = $this->state->get('list.direction');
                                 $fullURL->setVar('return', base64_encode($returnURL));
                                 ?>
                                 <a href="<?php echo $fullURL; ?>" class="register">
-                            <?php echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?></a>
+                            <?php echo Text::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?></a>
                             </td>
                     <?php endif; ?>
 

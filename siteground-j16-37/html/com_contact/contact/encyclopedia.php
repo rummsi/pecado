@@ -9,6 +9,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $cparams = JComponentHelper::getParams('com_media');
 ?>
@@ -36,7 +37,7 @@ $cparams = JComponentHelper::getParams('com_media');
                     HTMLHelper::_('behavior.caption');
                 }
                 ?>
-            <?php echo HTMLHelper::_('image', $this->contact->image, JText::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle', 'class' => 'caption', 'title' => $this->contact->address)); ?>
+            <?php echo HTMLHelper::_('image', $this->contact->image, Text::_('COM_CONTACT_IMAGE_DETAILS'), array('align' => 'middle', 'class' => 'caption', 'title' => $this->contact->address)); ?>
             </div>
         <?php endif; ?> 	
     </div>

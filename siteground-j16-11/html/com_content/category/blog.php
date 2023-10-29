@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -95,7 +96,7 @@ if ($templateparams->get('html5') != 1) {
         <?php if (is_array($this->children[$this->category->id]) && count($this->children[$this->category->id]) > 0 && $this->params->get('maxLevel') != 0) : ?>
             <div class="cat-children">
                 <h3>
-                    <?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
+                    <?php echo Text::_('JGLOBAL_SUBCATEGORIES'); ?>
                 </h3>
                 <?php echo $this->loadTemplate('children'); ?>
             </div>

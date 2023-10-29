@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -49,7 +50,7 @@ $class = ' class="first"';
                     <?php if ($child->getNumItems() == true) : ?>
                         <dl>
                             <dt>
-                                <?php echo JText::_('COM_CONTENT_NUM_ITEMS'); ?>
+                                <?php echo Text::_('COM_CONTENT_NUM_ITEMS'); ?>
                             </dt>
                             <dd>
                                 <?php echo $child->getNumItems(true); ?>

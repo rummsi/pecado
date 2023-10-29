@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $app = Factory::getApplication();
 $templateparams =$app->getTemplate(true)->params;
@@ -24,7 +25,7 @@ if ($templateparams->get('html5')!=1)
 } else {
 HTMLHelper::addIncludePath(JPATH_COMPONENT.DIRECTORY_SEPARATOR.'helpers');
 ?>
-<h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
+<h3><?php echo Text::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
 <ol class="links">
 <?php foreach ($this->link_items as &$item) : ?>
 	<li>

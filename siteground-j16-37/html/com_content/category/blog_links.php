@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 
 $params = & $this->item->params;
 $app = Factory::getApplication();
@@ -23,7 +24,7 @@ if ($templateparams->get('html5') != 1) {
     ?>
 
     <div class="items-more">
-        <h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
+        <h3><?php echo Text::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
 
         <ol>
 

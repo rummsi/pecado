@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 $app = Factory::getApplication();
 $templateparams = $app->getTemplate(true)->params;
@@ -64,7 +65,7 @@ if (!$templateparams->get('html5', 0)) {
                     echo '<h2>';
                 }
                 ?>
-                <?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
+                <?php echo Text::_('JGLOBAL_SUBCATEGORIES'); ?>
                 <?php
                 if ($this->params->get('show_category_title') OR $this->params->get('page_subheading')) {
                     echo '</h3>';
