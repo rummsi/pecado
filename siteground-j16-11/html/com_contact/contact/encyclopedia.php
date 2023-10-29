@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
-$cparams = JComponentHelper::getParams('com_media');
+$cparams = Factory::getApplication()->getParams('com_media');
 ?>
 <div class="contact<?php echo $this->pageclass_sfx ?>">
     <?php $contactLink = ContactHelperRoute::getCategoryRoute($this->contact->catid); ?>

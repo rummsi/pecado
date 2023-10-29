@@ -21,7 +21,7 @@ if ($templateparams->get('html5') != 1) {
     //evtl. ersetzen durch JPATH_COMPONENT.'/tmpl/...'
 } else {
     HTMLHelper::addIncludePath(JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'helpers');
-    $cparams = & JComponentHelper::getParams('com_media');
+    $cparams = Factory::getApplication()->getParams('com_media');
 
 // If the page class is defined, add to class as suffix.
 // It will be a separate class if the user starts it with a space
