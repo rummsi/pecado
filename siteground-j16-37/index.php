@@ -87,16 +87,16 @@ $tplparams = $app->getTemplate(true)->params;
                                     <?php endif; ?>
                                     <div class="clr"></div>
                                     <div id="footer">
+										<div id="menufooter">
+										<?php if ($this->countModules('position-footer')): ?>
+											<jdoc:include type="modules" name="position-footer" style="none" />
+										<?php endif; ?>
+										</div>
                                     </div>
                                     <div class="clr"></div>
 
                                 </div>
                             </div>		
-                        </div>
-                        <div id="menufooter">
-						<?php if ($this->countModules('position-footer')): ?>
-							<jdoc:include type="modules" name="position-footer" style="none" />
-						<?php endif; ?>
                         </div>
 						</div>
 				</div>
